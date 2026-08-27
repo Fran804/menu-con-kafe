@@ -4,15 +4,6 @@
 
   <main class="frame">
     <div class="frame__inner">
-      <!-- Hojas decorativas en las esquinas del marco -->
-      @for (pos of ['tl', 'tr', 'bl', 'br']; track pos) {
-        <svg [class]="'frame__leaf frame__leaf--' + pos" viewBox="0 0 100 100"
-          fill="none" aria-hidden="true">
-          <path d="M5 95 C25 60 55 45 95 40 C60 55 40 75 30 95 M40 62 C50 55 62 52 74 52 M25 78 C35 72 46 70 58 71"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-        </svg>
-      }
-
       <p class="frame__hint">Toca un producto para ver foto, descripción y precio</p>
 
       @for (category of visibleCategories(); track category.id) {

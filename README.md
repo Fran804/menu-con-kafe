@@ -110,16 +110,23 @@ src/app/
 
 ---
 
-## Deployment (Vercel)
+## Deployment (Netlify)
 
-El proyecto se despliega como sitio estático. Incluye `vercel.json` con:
+El proyecto se despliega como sitio estático. Incluye `netlify.toml` con:
 
 - Build: `npm run build`
-- Output: `dist/menu-con-kafe/browser`
-- Rewrites al `index.html` (SPA)
+- Publish: `dist/menu-con-kafe/browser`
+- Redirect SPA de `/*` a `/index.html`
+- Cabeceras de seguridad y caché de assets
 
-Basta con importar el repositorio en Vercel; detecta la configuración
-automáticamente.
+Para publicarlo, importa el repositorio en Netlify (mismo equipo/cuenta que el
+POS `pos-con-kafe`); Netlify detecta `netlify.toml` automáticamente. También se
+puede desplegar desde la CLI:
+
+```bash
+npm run build
+npx netlify deploy --prod
+```
 
 ---
 
