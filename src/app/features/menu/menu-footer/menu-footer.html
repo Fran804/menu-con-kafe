@@ -1,0 +1,48 @@
+<footer class="footer">
+  <p class="footer__name">{{ config()?.name ?? 'Con KaFe' }}</p>
+  <p class="footer__tagline">{{ config()?.tagline ?? 'Panadería & Café' }}</p>
+
+  <ul class="footer__socials" aria-label="Redes sociales">
+    <li>
+      <a class="footer__social" [class.footer__social--off]="!config()?.social?.instagram"
+        [href]="config()?.social?.instagram || null" target="_blank" rel="noopener"
+        aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a class="footer__social" [class.footer__social--off]="!config()?.social?.facebook"
+        [href]="config()?.social?.facebook || null" target="_blank" rel="noopener"
+        aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.25-1.5 1.55-1.5H17V4.6c-.3 0-1.3-.13-2.46-.13-2.44 0-4.1 1.49-4.1 4.22V11H7.7v3.1h2.74V22h3.06z" />
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a class="footer__social" [class.footer__social--off]="!config()?.social?.tiktok"
+        [href]="config()?.social?.tiktok || null" target="_blank" rel="noopener"
+        aria-label="TikTok">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M16.6 5.82A4.28 4.28 0 0115.6 3h-3.1v12.4a2.6 2.6 0 11-2.6-2.6c.27 0 .53.04.78.12v-3.16a5.7 5.7 0 00-.78-.05A5.72 5.72 0 1015.6 15.4V9.01a7.35 7.35 0 004.4 1.45V7.3a4.28 4.28 0 01-3.4-1.48z" />
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a class="footer__social" [class.footer__social--off]="!whatsappUrl()"
+        [href]="whatsappUrl() || null" target="_blank" rel="noopener"
+        aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22l5.16-1.35a9.9 9.9 0 004.88 1.25h.01c5.5 0 9.96-4.46 9.96-9.96 0-2.66-1.04-5.16-2.92-7.04A9.9 9.9 0 0012.04 2zm5.83 14.06c-.25.7-1.44 1.33-1.99 1.41-.53.08-1.16.11-1.87-.12-.43-.14-.98-.32-1.69-.62-2.97-1.28-4.9-4.27-5.05-4.47-.15-.2-1.2-1.6-1.2-3.06 0-1.45.76-2.16 1.03-2.46.27-.3.59-.37.79-.37.2 0 .39 0 .57.01.18.01.43-.07.67.51.25.6.84 2.05.91 2.2.07.15.12.32.02.52-.1.2-.15.32-.29.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.6.17.3.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.36 1.46.3.15.47.12.64-.07.17-.2.74-.86.94-1.16.2-.3.39-.25.66-.15.27.1 1.71.81 2.01.96.3.15.5.22.57.35.07.12.07.72-.18 1.42z" />
+        </svg>
+      </a>
+    </li>
+  </ul>
+
+  <p class="footer__legal">© {{ year }} Con KaFe · Hecho con cariño</p>
+</footer>

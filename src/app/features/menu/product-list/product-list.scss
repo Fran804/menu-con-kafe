@@ -1,0 +1,43 @@
+.menu-section {
+  margin-top: 8px;
+
+  &__items {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  &__empty {
+    color: var(--text-muted);
+    font-style: italic;
+    padding: 10px 8px;
+  }
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-content: center;
+  color: var(--color-verde);
+  font-size: clamp(1.3rem, 5vw, 1.9rem);
+  margin: 30px 0 16px;
+  letter-spacing: 0.5px;
+
+  &::before,
+  &::after {
+    content: "";
+    height: 1px;
+    background: var(--line);
+    flex: 1;
+    max-width: 90px;
+  }
+}
+
+/* Dos columnas en pantallas amplias */
+@media (min-width: 900px) {
+  .menu-section__items {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 48px;
+  }
+}

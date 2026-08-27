@@ -1,0 +1,55 @@
+.product {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  display: flex;
+  align-items: baseline;
+  padding: 13px 8px;
+  border-radius: 8px;
+  transition: background-color 0.15s ease;
+
+  &:hover,
+  &:active {
+    background: rgba(38, 73, 21, 0.06);
+  }
+
+  &__name {
+    font-family: var(--font-serif);
+    font-size: 1.14rem;
+    font-weight: 500;
+    color: var(--color-cafe-oscuro);
+  }
+
+  &__leaders {
+    flex: 1;
+    border-bottom: 1.5px dotted var(--line);
+    margin: 0 8px 5px;
+    min-width: 16px;
+  }
+
+  &__price {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--color-verde);
+    white-space: nowrap;
+  }
+
+  &__badge {
+    display: inline-block;
+    font-size: 0.58rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: var(--color-cafe-oscuro);
+    color: var(--color-crema);
+    padding: 2px 7px;
+    border-radius: 4px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  &--sold {
+    opacity: 0.55;
+  }
+}

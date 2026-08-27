@@ -1,0 +1,13 @@
+<section class="menu-section" [attr.aria-labelledby]="'cat-' + category().id">
+  <h2 class="section-label" [id]="'cat-' + category().id">
+    <span class="section-label__text">{{ category().name }}</span>
+  </h2>
+
+  <div class="menu-section__items">
+    @for (product of products(); track product.id) {
+      <app-product-item [product]="product" (select)="select.emit($event)" />
+    } @empty {
+      <p class="menu-section__empty">Pronto añadiremos productos a esta categoría.</p>
+    }
+  </div>
+</section>

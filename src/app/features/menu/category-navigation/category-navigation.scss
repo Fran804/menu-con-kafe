@@ -1,0 +1,46 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--color-crema);
+  box-shadow: 0 4px 14px -9px rgba(54, 23, 2, 0.5);
+
+  &__scroll {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 13px 16px;
+    max-width: var(--page-max);
+    margin: 0 auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__chip {
+    flex: 0 0 auto;
+    border: 1.5px solid var(--color-verde);
+    background: transparent;
+    color: var(--color-verde);
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 9px 18px;
+    border-radius: 40px;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background: rgba(38, 73, 21, 0.08);
+    }
+
+    &--active {
+      background: var(--color-verde);
+      color: var(--color-crema);
+    }
+  }
+}

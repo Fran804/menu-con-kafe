@@ -1,0 +1,37 @@
+@if (product(); as p) {
+  <div class="overlay" (click)="onBackdrop($event)">
+    <div class="sheet" role="dialog" aria-modal="true" [attr.aria-label]="p.name">
+      <span class="sheet__grab" aria-hidden="true"></span>
+      <button #closeBtn type="button" class="sheet__close" (click)="close()" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+          stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+
+      <div class="sheet__photo" [class.sheet__photo--sold]="!p.available">
+        @if (p.imageUrl) {
+          <img [src]="p.imageUrl" [alt]="p.name" loading="lazy" />
+        } @else {
+          <!-- Placeholder botánico neutro mientras no haya fotografía real -->
+          <svg class="sheet__placeholder" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+            <path d="M50 82 C48 55 55 35 82 22 C60 34 46 55 46 82 M50 62 C50 50 44 40 30 34 C42 42 46 52 46 62"
+              stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        }
+      </div>
+
+      <h2 class="sheet__title">{{ p.name }}</h2>
+
+      @if (!p.available) {
+        <span class="sheet__sold">Agotado</span>
+      }
+
+      @if (p.description) {
+        <p class="sheet__desc">{{ p.description }}</p>
+      }
+
+      <div class="sheet__price">{{ p.price | price }}</div>
+    </div>
+  </div>
+}

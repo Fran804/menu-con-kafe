@@ -1,0 +1,83 @@
+/* ===========================================================
+   Con KaFe · Estilos globales y tokens de marca
+   =========================================================== */
+
+:root {
+  /* Paleta de marca */
+  --color-verde-oscuro: #12383d;
+  --color-verde: #264915;
+  --color-cafe-oscuro: #361702;
+  --color-cafe: #5a3316;
+  --color-crema: #fcf0de;
+  --color-crema-2: #f7e8d0;
+  --color-dorado: #f6bd50;
+  --color-negro: #000000;
+
+  /* Semánticos */
+  --bg-outer: var(--color-verde-oscuro);
+  --bg-page: var(--color-crema);
+  --text-main: var(--color-cafe-oscuro);
+  --text-muted: rgba(54, 23, 2, 0.62);
+  --line: rgba(54, 23, 2, 0.25);
+  --accent: var(--color-dorado);
+
+  /* Tipografía */
+  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* Layout */
+  --page-max: 1180px;
+  --radius: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-outer);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Accesibilidad: foco visible y consistente */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Respeta usuarios que prefieren menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

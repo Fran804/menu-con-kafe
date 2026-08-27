@@ -1,0 +1,15 @@
+<button
+  type="button"
+  class="product"
+  [class.product--sold]="!product().available"
+  (click)="onSelect()"
+  [attr.aria-label]="'Ver detalle de ' + product().name + ', ' + (product().price | price)">
+  <span class="product__name">
+    {{ product().name }}
+    @if (!product().available) {
+      <span class="product__badge">Agotado</span>
+    }
+  </span>
+  <span class="product__leaders" aria-hidden="true"></span>
+  <span class="product__price">{{ product().price | price }}</span>
+</button>

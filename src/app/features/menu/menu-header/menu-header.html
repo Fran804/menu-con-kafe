@@ -1,0 +1,19 @@
+<header class="header">
+  <!-- Ramas botánicas decorativas (sutiles) -->
+  <svg class="header__vine header__vine--a" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+    <path d="M10 90 C30 55 60 40 96 36 M40 60 C52 53 66 50 80 50 M22 76 C34 70 47 68 60 69 M55 47 C63 41 73 39 84 40"
+      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+  </svg>
+  <svg class="header__vine header__vine--b" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+    <path d="M10 90 C30 55 60 40 96 36 M40 60 C52 53 66 50 80 50 M22 76 C34 70 47 68 60 69 M55 47 C63 41 73 39 84 40"
+      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+  </svg>
+
+  <!-- Escudo / logo. Placeholder tipográfico hasta integrar el logo real. -->
+  <div class="header__crest" aria-hidden="true">
+    <span>{{ config()?.name ?? 'Con KaFe' }}</span>
+  </div>
+
+  <h1 class="header__title">{{ config()?.name ?? 'Con KaFe' }}</h1>
+  <p class="header__tagline">{{ config()?.tagline ?? 'Panadería & Café' }}</p>
+</header>
