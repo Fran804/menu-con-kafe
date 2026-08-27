@@ -1,5 +1,7 @@
 .menu-section {
   margin-top: 8px;
+  /* Compensa la barra de categorías fija al hacer scroll a la sección */
+  scroll-margin-top: 72px;
 
   &__items {
     display: grid;

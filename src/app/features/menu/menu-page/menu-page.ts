@@ -22,7 +22,7 @@ import { ProductModal } from '../product-modal/product-modal';
 export class MenuPage {
   private readonly menu = inject(MenuService);
 
-  readonly visibleCategories = this.menu.visibleCategories;
+  readonly categories = this.menu.categories;
   readonly loading = this.menu.loading;
 
   /** Producto abierto en el modal (null = cerrado). */

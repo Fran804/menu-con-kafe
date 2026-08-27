@@ -21,10 +21,10 @@ const SITE_CONFIG: SiteConfig = {
   tagline: 'Panadería & Café',
   social: {
     // Reemplaza con los enlaces reales cuando los tengas.
-    instagram: '',
-    facebook: '',
-    tiktok: '',
-    whatsapp: '', // Ej: "5215512345678" (formato internacional, solo dígitos)
+    instagram: 'https://www.instagram.com/con.kafe/',
+    facebook: 'https://www.facebook.com/conkafe.cafeteria',
+    tiktok: 'https://www.tiktok.com/@con.kafe',
+    whatsapp: '9992231744', // Ej: "5215512345678" (formato internacional, solo dígitos)
   },
 };
 

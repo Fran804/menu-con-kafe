@@ -1,4 +1,5 @@
-<section class="menu-section" [attr.aria-labelledby]="'cat-' + category().id">
+<section class="menu-section" [id]="'section-' + category().id"
+  [attr.aria-labelledby]="'cat-' + category().id">
   <h2 class="section-label" [id]="'cat-' + category().id">
     <span class="section-label__text">{{ category().name }}</span>
   </h2>

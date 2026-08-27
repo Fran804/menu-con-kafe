@@ -6,7 +6,7 @@
     <div class="frame__inner">
       <p class="frame__hint">Toca un producto para ver foto, descripción y precio</p>
 
-      @for (category of visibleCategories(); track category.id) {
+      @for (category of categories(); track category.id) {
         <app-product-list
           [category]="category"
           [products]="productsOf(category.id)"

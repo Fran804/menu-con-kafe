@@ -1,9 +1,11 @@
 <header class="header">
-  <!-- Escudo / logo. Placeholder tipográfico hasta integrar el logo real. -->
-  <div class="header__crest" aria-hidden="true">
-    <span>{{ config()?.name ?? 'Con KaFe' }}</span>
+  <!-- Logo real dentro de un escudo crema para dar contraste sobre el verde -->
+  <div class="header__crest">
+    <img class="header__logo" src="images/logo-con-kafe.png"
+      [attr.alt]="'Logo de ' + (config()?.name ?? 'Con KaFe')" />
   </div>
 
-  <h1 class="header__title">{{ config()?.name ?? 'Con KaFe' }}</h1>
+  <!-- El nombre ya aparece en el logo; se mantiene como h1 accesible (oculto visualmente) -->
+  <h1 class="sr-only">{{ config()?.name ?? 'Con KaFe' }}</h1>
   <p class="header__tagline">{{ config()?.tagline ?? 'Panadería & Café' }}</p>
 </header>

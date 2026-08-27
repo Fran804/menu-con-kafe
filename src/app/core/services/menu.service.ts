@@ -24,27 +24,21 @@ export class MenuService {
   private readonly _products = signal<Product[]>([]);
   private readonly _loading = signal(true);
 
-  /** Categoría seleccionada en la navegación (por defecto: Todos). */
+  /**
+   * Categoría resaltada en la navegación (por defecto: Todos).
+   * Solo controla el resaltado del chip: NO filtra el contenido.
+   * La navegación desplaza suavemente a la sección correspondiente.
+   */
   readonly activeCategoryId = signal<string>(ALL_CATEGORIES);
 
   /** Lecturas públicas de solo lectura. */
   readonly config = this._config.asReadonly();
   readonly loading = this._loading.asReadonly();
 
-  /** Categorías ordenadas. */
+  /** Categorías ordenadas. Siempre se muestran todas. */
   readonly categories = computed(() =>
     [...this._categories()].sort((a, b) => (a.order ?? 0) - (b.order ?? 0)),
   );
-
-  /**
-   * Categorías que se deben mostrar según la pestaña activa.
-   * "Todos" muestra todas; una categoría concreta muestra solo esa.
-   */
-  readonly visibleCategories = computed(() => {
-    const active = this.activeCategoryId();
-    const all = this.categories();
-    return active === ALL_CATEGORIES ? all : all.filter((c) => c.id === active);
-  });
 
   constructor() {
     void this.load();
@@ -60,8 +54,8 @@ export class MenuService {
     this._loading.set(false);
   }
 
-  /** Cambia la categoría activa. */
-  selectCategory(categoryId: string): void {
+  /** Marca la categoría activa (para el resaltado del chip). */
+  setActiveCategory(categoryId: string): void {
     this.activeCategoryId.set(categoryId);
   }
 
