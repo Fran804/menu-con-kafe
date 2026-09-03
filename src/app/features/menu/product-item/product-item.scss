@@ -1,34 +1,65 @@
 .product {
+  --row-bg: var(--bg-page);
+  position: relative;
   width: 100%;
-  background: none;
+  background: var(--row-bg);
   border: none;
   text-align: left;
-  display: flex;
-  align-items: baseline;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  column-gap: 8px;
   padding: 13px 8px;
   border-radius: 8px;
+  overflow: hidden;
   transition: background-color 0.15s ease;
 
   &:hover,
   &:active {
-    background: rgba(38, 73, 21, 0.06);
+    /* mezcla del crema de fondo con el verde de feedback, para que la
+       máscara del nombre y el precio siga tapando los puntos en hover */
+    --row-bg: #efe6d2;
+  }
+
+  /* Línea de puntos que ocupa el ancho completo a la altura de la última
+     línea del nombre; el nombre y el precio la tapan con su fondo opaco,
+     dejando visibles solo los puntos del hueco intermedio. */
+  &::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: 18px;
+    border-bottom: 1.5px dotted var(--line);
+    z-index: 0;
   }
 
   &__name {
+    grid-column: 1;
+    min-width: 0;
+    z-index: 1;
     font-family: var(--font-serif);
     font-size: 1.14rem;
     font-weight: 500;
+    line-height: 1.35;
     color: var(--color-cafe-oscuro);
   }
 
-  &__leaders {
-    flex: 1;
-    border-bottom: 1.5px dotted var(--line);
-    margin: 0 8px 5px;
-    min-width: 16px;
+  /* Elemento inline: su fondo se ajusta a cada línea de texto (no a la caja
+     completa), así los puntos arrancan justo donde termina el texto real,
+     incluso cuando el nombre pasa a una segunda línea. */
+  &__name-inner {
+    background: var(--row-bg);
+    padding-right: 5px;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
   }
 
   &__price {
+    grid-column: 2;
+    z-index: 1;
+    background: var(--row-bg);
+    padding-left: 6px;
     font-weight: 700;
     font-size: 1.05rem;
     color: var(--color-verde);
