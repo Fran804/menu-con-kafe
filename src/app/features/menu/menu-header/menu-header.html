@@ -1,4 +1,11 @@
 <header class="header">
+
+  <img class="header__botanical header__botanical--left"
+       src="images/hojas.png" aria-hidden="true" alt="">
+
+  <img class="header__botanical header__botanical--right"
+       src="images/hojas.png" aria-hidden="true" alt="">
+
   <!-- Logo real dentro de un escudo crema para dar contraste sobre el verde -->
   <div class="header__crest">
     <img class="header__logo" src="images/logo-con-kafe.png"
@@ -8,4 +15,5 @@
   <!-- El nombre ya aparece en el logo; se mantiene como h1 accesible (oculto visualmente) -->
   <h1 class="sr-only">{{ config()?.name ?? 'Con KaFe' }}</h1>
   <p class="header__tagline">{{ config()?.tagline ?? 'Panadería & Café' }}</p>
+
 </header>

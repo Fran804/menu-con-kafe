@@ -5,8 +5,29 @@
   color: var(--color-crema);
   background: var(--color-verde-oscuro);
   border-bottom: 4px solid var(--accent);
+  overflow: hidden;
+
+  &__botanical {
+    position: absolute;
+    bottom: 0;
+    width: clamp(110px, 30vw, 150px);
+    pointer-events: none;
+    filter: invert(1);
+    mix-blend-mode: screen;
+    opacity: 0.5;
+
+    &--left {
+      left: 0;
+      transform: scaleX(-1);
+    }
+
+    &--right {
+      right: 0;
+    }
+  }
 
   &__crest {
+    position: relative;
     width: 132px;
     height: 132px;
     margin: 0 auto 10px;

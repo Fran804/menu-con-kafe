@@ -23,4 +23,6 @@ export interface Product {
   featured?: boolean;
   /** Orden de aparición dentro de su categoría (menor = primero). */
   order?: number;
+  /** Subcategoría visual (ej. "Dulces", "Salados"). Solo genera un separador, no es navegación. */
+  subcategory?: string;
 }

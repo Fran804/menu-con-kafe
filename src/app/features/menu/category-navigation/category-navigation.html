@@ -1,14 +1,5 @@
 <nav class="nav" aria-label="Categorías del menú">
   <div class="nav__scroll">
-    <button
-      type="button"
-      class="nav__chip"
-      [class.nav__chip--active]="activeId() === all"
-      [attr.aria-pressed]="activeId() === all"
-      (click)="select(all)">
-      Todos
-    </button>
-
     @for (category of categories(); track category.id) {
       <button
         type="button"

@@ -11,8 +11,8 @@ import { MenuDataSource } from '../core/services/menu-data-source';
    Este es el ÚNICO lugar donde se editan productos, precios y configuración.
    Cambiar un precio aquí actualiza automáticamente toda la interfaz.
 
-   ⚠️ Algunos precios son provisionales (marcados con  // TODO: confirmar).
-      Solo están confirmados los de la imagen del menú actual.
+   ⚠️ Los precios marcados con // TODO: confirmar son provisionales.
+      Solo están confirmados los precios sin esa etiqueta.
    =========================================================================== */
 
 /** Configuración de marca y redes sociales. */
@@ -20,41 +20,32 @@ const SITE_CONFIG: SiteConfig = {
   name: 'Con KaFe',
   tagline: 'Panadería & Café',
   social: {
-    // Reemplaza con los enlaces reales cuando los tengas.
     instagram: 'https://www.instagram.com/con.kafe/',
     facebook: 'https://www.facebook.com/conkafe.cafeteria',
     tiktok: 'https://www.tiktok.com/@con.kafe',
-    whatsapp: '9992231744', // Ej: "5215512345678" (formato internacional, solo dígitos)
+    whatsapp: '9992231744',
   },
 };
 
 /** Categorías del menú (ordenadas). */
 const CATEGORIES: Category[] = [
   { id: 'panaderia', name: 'Panadería', order: 1 },
-  { id: 'bebidas', name: 'Bebidas', order: 2 },
+  { id: 'comidas',   name: 'Comidas',   order: 2 },
+  { id: 'bebidas',   name: 'Bebidas',   order: 3 },
 ];
 
 /** Productos del menú. El precio va como número; la UI le añade el símbolo. */
 const PRODUCTS: Product[] = [
-  // ---------------------- PANADERÍA ----------------------
-  {
-    id: 'pan-zanahoria',
-    name: 'Pan de zanahoria',
-    description: 'Panqué húmedo de zanahoria con especias y un toque de canela. Hecho en casa.',
-    price: 80, // TODO: confirmar
-    categoryId: 'panaderia',
-    available: true,
-    featured: true,
-    order: 1,
-  },
+  // ---------------------- PANADERÍA · Dulces ----------------------
   {
     id: 'croissant',
     name: 'Croissant',
     description: 'Hojaldre mantequilloso horneado cada mañana.',
     price: 83,
     categoryId: 'panaderia',
+    subcategory: 'Dulces',
     available: true,
-    order: 2,
+    order: 1,
   },
   {
     id: 'chocolatin',
@@ -62,8 +53,40 @@ const PRODUCTS: Product[] = [
     description: 'Pan de hojaldre relleno de chocolate.',
     price: 90,
     categoryId: 'panaderia',
+    subcategory: 'Dulces',
     available: true,
+    order: 2,
+  },
+  {
+    id: 'pan-zanahoria-domo',
+    name: 'Pan de zanahoria — Domo',
+    description: 'Panqué húmedo de zanahoria con especias y canela. Presentación individual domo.',
+    price: 80, // TODO: confirmar
+    categoryId: 'panaderia',
+    subcategory: 'Dulces',
+    available: true,
+    featured: true,
     order: 3,
+  },
+  {
+    id: 'pan-zanahoria-chico',
+    name: 'Pan de zanahoria — Panqué chico',
+    description: 'Panqué húmedo de zanahoria con especias y canela. Tamaño chico.',
+    price: 80, // TODO: confirmar
+    categoryId: 'panaderia',
+    subcategory: 'Dulces',
+    available: true,
+    order: 4,
+  },
+  {
+    id: 'pan-zanahoria-grande',
+    name: 'Pan de zanahoria — Panqué grande',
+    description: 'Panqué húmedo de zanahoria con especias y canela. Tamaño grande.',
+    price: 80, // TODO: confirmar
+    categoryId: 'panaderia',
+    subcategory: 'Dulces',
+    available: true,
+    order: 5,
   },
   {
     id: 'rol-canela',
@@ -71,9 +94,10 @@ const PRODUCTS: Product[] = [
     description: 'Espiral suave y esponjosa con canela y glaseado artesanal.',
     price: 115,
     categoryId: 'panaderia',
+    subcategory: 'Dulces',
     available: true,
     featured: true,
-    order: 4,
+    order: 6,
   },
   {
     id: 'rol-canela-nuez',
@@ -81,35 +105,41 @@ const PRODUCTS: Product[] = [
     description: 'Nuestro clásico rol de canela con nuez caramelizada.',
     price: 95,
     categoryId: 'panaderia',
-    available: true,
-    order: 5,
-  },
-  {
-    id: 'tiramisu',
-    name: 'Tiramisú',
-    description: 'Postre italiano con café, mascarpone y cacao.',
-    price: 95, // TODO: confirmar
-    categoryId: 'panaderia',
-    available: true,
-    order: 6,
-  },
-  {
-    id: 'rol-salado',
-    name: 'Rol salado',
-    description: 'Rol relleno salado, ideal para acompañar tu café.',
-    price: 85, // TODO: confirmar
-    categoryId: 'panaderia',
+    subcategory: 'Dulces',
     available: true,
     order: 7,
   },
   {
-    id: 'tarta-frutos-rojos',
-    name: 'Tarta de frutos rojos',
-    description: 'Base crujiente con crema y frutos rojos frescos.',
-    price: 110, // TODO: confirmar
+    id: 'tiramisu',
+    name: 'Tiramisú',
+    description: 'Postre italiano con café espresso, mascarpone y cacao.',
+    price: 95, // TODO: confirmar
     categoryId: 'panaderia',
+    subcategory: 'Dulces',
     available: true,
     order: 8,
+  },
+
+  // ---------------------- PANADERÍA · Salados ----------------------
+  {
+    id: 'pizzarol',
+    name: 'PizzaRol',
+    description: 'Rol de masa suave con ingredientes estilo pizza, horneado al momento.',
+    price: 85, // TODO: confirmar
+    categoryId: 'panaderia',
+    subcategory: 'Salados',
+    available: true,
+    order: 9,
+  },
+  {
+    id: 'bolitas-queso',
+    name: 'Bolitas de queso',
+    description: 'Bocaditos fritos de queso, dorados y esponjosos.',
+    price: 40, // TODO: confirmar
+    categoryId: 'panaderia',
+    subcategory: 'Salados',
+    available: true,
+    order: 10,
   },
   {
     id: 'hojaldras',
@@ -117,73 +147,143 @@ const PRODUCTS: Product[] = [
     description: 'Hojaldre azucarado, crujiente por fuera y suave por dentro.',
     price: 35, // TODO: confirmar
     categoryId: 'panaderia',
+    subcategory: 'Salados',
     available: true,
-    order: 9,
+    order: 11,
   },
   {
-    id: 'bolitas-queso',
-    name: 'Bolitas de queso',
-    description: 'Bocaditos fritos de queso, doraditos y esponjosos.',
-    price: 40, // TODO: confirmar
+    id: 'rol-canela-queso-bola',
+    name: 'Rol de canela con nutella y queso de bola',
+    description: 'Rol de canela con relleno de nutella y cobertura de queso de bola.',
+    price: 95, // TODO: confirmar
     categoryId: 'panaderia',
+    subcategory: 'Salados',
     available: true,
-    order: 10,
+    order: 12,
   },
 
-  // ---------------------- BEBIDAS ----------------------
+  // ---------------------- COMIDAS ----------------------
   {
-    id: 'espresso',
-    name: 'Espresso',
-    description: 'Shot intenso de café de especialidad.',
-    price: 35, // TODO: confirmar
-    categoryId: 'bebidas',
+    id: 'focaccia-carnes-frias',
+    name: 'Focaccia de carnes frías',
+    description: 'Pan focaccia artesanal cubierto con selección de carnes frías.',
+    price: 95, // TODO: confirmar
+    categoryId: 'comidas',
     available: true,
     order: 1,
   },
   {
-    id: 'americano',
-    name: 'Americano',
-    description: 'Espresso con agua caliente. Refill disponible.',
-    price: 40, // TODO: confirmar
+    id: 'focaccia-pechuga-pavo',
+    name: 'Focaccia de pechuga de pavo',
+    description: 'Pan focaccia artesanal con pechuga de pavo y hierbas.',
+    price: 95, // TODO: confirmar
+    categoryId: 'comidas',
+    available: true,
+    order: 2,
+  },
+
+  // ---------------------- BEBIDAS · Calientes ----------------------
+  {
+    id: 'americano-caliente',
+    name: 'Americano caliente',
+    description: 'Espresso con agua caliente.',
+    price: 55, // TODO: confirmar
     categoryId: 'bebidas',
+    subcategory: 'Calientes',
+    available: true,
+    order: 1,
+  },
+  {
+    id: 'capuchino-caliente',
+    name: 'Capuchino',
+    description: 'Espresso con leche vaporizada y espuma cremosa.',
+    price: 70, // TODO: confirmar
+    categoryId: 'bebidas',
+    subcategory: 'Calientes',
     available: true,
     order: 2,
   },
   {
-    id: 'cappuccino',
-    name: 'Cappuccino',
-    description: 'Espresso con leche vaporizada y espuma cremosa.',
-    price: 55, // TODO: confirmar
+    id: 'moka-caliente',
+    name: 'Moka',
+    description: 'Espresso con chocolate y leche vaporizada.',
+    price: 75, // TODO: confirmar
     categoryId: 'bebidas',
+    subcategory: 'Calientes',
     available: true,
     order: 3,
+  },
+  {
+    id: 'capuchino-salted-caramel',
+    name: 'Capuchino salted caramel',
+    description: 'Capuchino con sirope de caramelo salado y espuma cremosa.',
+    price: 80, // TODO: confirmar
+    categoryId: 'bebidas',
+    subcategory: 'Calientes',
+    available: true,
+    order: 4,
   },
   {
     id: 'latte',
     name: 'Latte',
     description: 'Espresso suave con abundante leche vaporizada.',
-    price: 60, // TODO: confirmar
+    price: 75, // TODO: confirmar
     categoryId: 'bebidas',
-    available: true,
-    order: 4,
-  },
-  {
-    id: 'flat-white',
-    name: 'Flat white',
-    description: 'Doble espresso con microespuma sedosa.',
-    price: 60, // TODO: confirmar
-    categoryId: 'bebidas',
+    subcategory: 'Frías',
     available: true,
     order: 5,
   },
   {
-    id: 'cafe-normal',
-    name: 'Café normal',
-    description: 'Café de la casa recién preparado.',
-    price: 30, // TODO: confirmar
+    id: 'latte-tiramisu',
+    name: 'Latte tiramisú',
+    description: 'Latte con sirope de tiramisú, inspirado en el postre clásico italiano.',
+    price: 85, // TODO: confirmar
     categoryId: 'bebidas',
+    subcategory: 'Frías',
     available: true,
     order: 6,
+  },
+
+  // ---------------------- BEBIDAS · Frías ----------------------
+  {
+    id: 'americano-frio',
+    name: 'Americano frío',
+    description: 'Espresso con agua fría y hielo.',
+    price: 60, // TODO: confirmar
+    categoryId: 'bebidas',
+    subcategory: 'Frías',
+    available: true,
+    order: 7,
+  },
+  {
+    id: 'moka-frio',
+    name: 'Moka frío',
+    description: 'Espresso con chocolate, leche y hielo.',
+    price: 80, // TODO: confirmar
+    categoryId: 'bebidas',
+    subcategory: 'Frías',
+    available: true,
+    order: 8,
+  },
+  {
+    id: 'latte-salted-caramel-frio',
+    name: 'Latte salted caramel',
+    description: 'Latte frío con sirope de caramelo salado.',
+    price: 80, // TODO: confirmar
+    categoryId: 'bebidas',
+    subcategory: 'Frías',
+    available: true,
+    order: 9,
+  },
+  {
+    id: 'refrescos',
+    name: 'Refrescos',
+    description: 'Coca-Cola normal o sin azúcar. Bebidas gasificadas: mango naranja, frambuesa, kiwi fresa.',
+    price: 40, // TODO: confirmar
+    categoryId: 'bebidas',
+    subcategory: 'Frías',
+    available: true,
+    order: 10,
   },
 ];
 

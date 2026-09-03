@@ -5,8 +5,11 @@
   </h2>
 
   <div class="menu-section__items">
-    @for (product of products(); track product.id) {
-      <app-product-item [product]="product" (select)="select.emit($event)" />
+    @for (row of rows(); track row.product.id) {
+      @if (row.showLabel) {
+        <p class="subcategory-label" aria-hidden="true">{{ row.product.subcategory }}</p>
+      }
+      <app-product-item [product]="row.product" (select)="select.emit($event)" />
     } @empty {
       <p class="menu-section__empty">Pronto añadiremos productos a esta categoría.</p>
     }

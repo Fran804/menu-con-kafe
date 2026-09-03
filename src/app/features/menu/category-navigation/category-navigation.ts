@@ -58,7 +58,8 @@ export class CategoryNavigation {
     }
 
     // La sección activa es la última cuyo borde superior ya pasó el umbral.
-    let current = this.all;
+    // Por defecto resalta la primera categoría (no hay botón "Todos").
+    let current = cats[0]?.id ?? this.all;
     for (const category of cats) {
       const el = document.getElementById('section-' + category.id);
       if (el && el.getBoundingClientRect().top <= this.threshold) {
