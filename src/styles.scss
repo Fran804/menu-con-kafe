@@ -4,21 +4,21 @@
 
 :root {
   /* Paleta de marca */
-  --color-verde-oscuro: #12383d;
-  --color-verde: #264915;
-  --color-cafe-oscuro: #361702;
-  --color-cafe: #5a3316;
-  --color-crema: #fcf0de;
-  --color-crema-2: #f7e8d0;
-  --color-dorado: #f6bd50;
+  --color-verde-oscuro: #1f3d34;   /* primary  */
+  --color-verde: #12383d;          /* terciary */
+  --color-cafe-oscuro: #2b1a10;    /* text     */
+  --color-cafe: #4a2c17;           /* secondary */
+  --color-crema: #f7ead4;          /* background */
+  --color-crema-2: #f0ddbf;
+  --color-dorado: #e0a13c;         /* accent   */
   --color-negro: #000000;
 
   /* Semánticos */
   --bg-outer: var(--color-verde-oscuro);
   --bg-page: var(--color-crema);
   --text-main: var(--color-cafe-oscuro);
-  --text-muted: rgba(54, 23, 2, 0.62);
-  --line: rgba(54, 23, 2, 0.25);
+  --text-muted: rgba(43, 26, 16, 0.62);
+  --line: rgba(43, 26, 16, 0.25);
   --accent: var(--color-dorado);
 
   /* Tipografía */

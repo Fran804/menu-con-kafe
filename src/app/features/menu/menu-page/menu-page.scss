@@ -12,7 +12,9 @@
 
   &__inner {
     position: relative;
-    padding: 26px 18px 46px;
+    padding: 30px 22px 46px;
+    border: 1.5px solid var(--accent);
+    border-radius: 12px;
   }
 
   &__hint {
